@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+nav {
+    padding: 0 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content {
+    min-height: calc(100vh - 70px - 64px);
+    padding: 1.5rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.goods {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1.5fr));
+    gap: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card {
+    display: flex;
+    flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.card-content {
+    flex-grow: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cart {
+    position: fixed;
+    bottom: 3rem;
+    right: 2rem;
+
+    cursor: pointer;
+    z-index: 5;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+@media (min-width: 767px) {
+    .cart {
+        top: 5.5rem;
+        bottom: unset;
+        right: 2rem;
+    }
+}
+
+.basket-list {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #fff;
+    width: 50rem;
+    max-width: 95%;
+
+    box-shadow: inset -1px 3px 8px 5px #1f87ff, 2px 5px 16px 0px #0b325e,
+        5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+    animation: show 500ms ease-in-out;
+}
+
+.basket-close {
+    cursor: pointer;
+    position: fixed;
+    color: #fff;
+    right: 0.5rem;
+    top: 0.5rem;
+}
+
+.basket-delete {
+    cursor: pointer;
+}
+
+@keyframes show {
+    from {
+        top: 70%;
+        opacity: 0;
+    }
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+.basket-btn {
+    cursor: pointer;
+    vertical-align: middle;
+    border: none;
+    background-color: transparent;
+    color: #26a69a;
+    padding: 0;
+}
+
+.basket-btn :hover {
+    color: #fff;
+    background-color: #26a69a;
+}
+
+#toast-container {
+    top: 3rem !important;
+    animation: fade-in 250ms ease-in-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
 }
